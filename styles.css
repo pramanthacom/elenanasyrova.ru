@@ -99,12 +99,12 @@ a {
   position: relative;
   overflow: hidden;
   min-height: calc(100vh - 68px);
-  padding: 62px 0;
+  padding: 42px 0;
   display: flex;
   align-items: center;
   background:
-    linear-gradient(122deg, rgba(255, 250, 244, 0.94) 0%, rgba(244, 220, 207, 0.76) 47%, rgba(204, 239, 235, 0.82) 100%),
-    linear-gradient(180deg, #fffaf4 0%, #f4dccf 100%);
+    linear-gradient(108deg, #fffaf4 0%, #fdebe4 52%, #dff6f1 100%),
+    linear-gradient(180deg, #fffaf4 0%, #f8ded5 100%);
 }
 
 .hero::before {
@@ -113,8 +113,8 @@ a {
   inset: 0;
   opacity: 0.34;
   background-image:
-    linear-gradient(90deg, transparent 0, transparent 46px, rgba(255, 255, 255, 0.56) 47px, transparent 48px),
-    linear-gradient(0deg, transparent 0, transparent 54px, rgba(7, 80, 87, 0.07) 55px, transparent 56px);
+    linear-gradient(90deg, transparent 0, transparent 46px, rgba(255, 255, 255, 0.5) 47px, transparent 48px),
+    linear-gradient(0deg, transparent 0, transparent 54px, rgba(185, 121, 103, 0.06) 55px, transparent 56px);
   mask-image: linear-gradient(90deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
   pointer-events: none;
 }
@@ -154,7 +154,7 @@ a {
 .contact-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 0.72fr);
-  gap: 58px;
+  gap: 50px;
   align-items: center;
 }
 
@@ -164,7 +164,7 @@ a {
 }
 
 .kicker {
-  margin: 0 0 18px;
+  margin: 0 0 14px;
   color: var(--teal-600);
   font-size: 13px;
   font-weight: 800;
@@ -190,8 +190,8 @@ h2 {
 }
 
 h1 {
-  font-size: clamp(56px, 8.2vw, 112px);
-  line-height: 0.88;
+  font-size: clamp(54px, 7vw, 98px);
+  line-height: 0.9;
 }
 
 h2 {
@@ -207,10 +207,10 @@ h3 {
 }
 
 .hero__role {
-  max-width: 680px;
-  margin: 26px 0 0;
+  max-width: 640px;
+  margin: 22px 0 0;
   color: var(--teal-950);
-  font-size: clamp(21px, 2.2vw, 29px);
+  font-size: clamp(21px, 1.8vw, 25px);
   line-height: 1.24;
 }
 
@@ -226,7 +226,7 @@ h3 {
 
 .hero__lead {
   max-width: 660px;
-  margin: 20px 0 0;
+  margin: 18px 0 0;
 }
 
 .actions {
@@ -285,7 +285,7 @@ h3 {
   position: relative;
   padding: 18px;
   border-radius: 8px;
-  background: rgba(255, 250, 244, 0.58);
+  background: rgba(255, 250, 244, 0.72);
   border: 1px solid rgba(23, 43, 45, 0.1);
   box-shadow: var(--shadow);
   backdrop-filter: blur(12px);
@@ -293,29 +293,29 @@ h3 {
 
 .portrait-frame {
   position: relative;
-  min-height: 430px;
+  min-height: 386px;
 }
 
 .portrait-slot {
   position: absolute;
   inset: 0;
-  min-height: 400px;
+  min-height: 360px;
   border-radius: 8px;
   display: grid;
   place-items: center;
   overflow: hidden;
   color: rgba(255, 250, 244, 0.84);
   background:
-    linear-gradient(180deg, rgba(5, 41, 44, 0.08), rgba(5, 41, 44, 0.28)),
-    linear-gradient(135deg, rgba(7, 80, 87, 0.36), rgba(232, 185, 173, 0.62) 56%, rgba(204, 239, 235, 0.72)),
-    rgba(255, 255, 255, 0.38);
+    radial-gradient(circle at 18% 18%, rgba(138, 223, 214, 0.72), transparent 30%),
+    radial-gradient(circle at 82% 72%, rgba(242, 201, 194, 0.82), transparent 34%),
+    linear-gradient(135deg, #d6f3ee 0%, #fff2e9 48%, #f7cfc6 100%);
   border: 1px solid rgba(255, 255, 255, 0.48);
 }
 
 .portrait-slot::before {
   content: "△";
   position: absolute;
-  top: 42px;
+  top: 36px;
   color: rgba(255, 255, 255, 0.82);
   font-size: 58px;
   line-height: 1;
@@ -324,7 +324,7 @@ h3 {
 .portrait-slot span {
   position: relative;
   z-index: 1;
-  margin-top: 124px;
+  margin-top: 104px;
   color: rgba(255, 250, 244, 0.9);
   font-size: 13px;
   font-weight: 800;
@@ -335,8 +335,8 @@ h3 {
 .floating-card {
   position: absolute;
   z-index: 2;
-  width: min(190px, 46%);
-  padding: 16px;
+  width: min(176px, 45%);
+  padding: 14px;
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.62);
   color: var(--teal-950);
@@ -357,27 +357,27 @@ h3 {
   display: block;
   margin-top: 8px;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 1.05;
 }
 
 .floating-card--voice {
-  left: -22px;
-  bottom: 72px;
+  left: -14px;
+  bottom: 56px;
   transform: rotate(-4deg);
 }
 
 .floating-card--ritual {
-  right: -18px;
-  top: 74px;
+  right: -12px;
+  top: 62px;
   transform: rotate(4deg);
 }
 
 .floating-card--cards {
-  right: 36px;
-  bottom: -14px;
-  background: rgba(204, 239, 235, 0.82);
+  right: 34px;
+  bottom: -8px;
+  background: rgba(214, 246, 240, 0.9);
   transform: rotate(-2deg);
 }
 
