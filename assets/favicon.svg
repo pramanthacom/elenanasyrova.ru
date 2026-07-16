@@ -1,22 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Golden eye symbol">
   <defs>
-    <linearGradient id="gold" x1="10" y1="8" x2="54" y2="56" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#fff0bd"/>
-      <stop offset="0.42" stop-color="#d9ad5c"/>
-      <stop offset="1" stop-color="#f4d894"/>
+    <linearGradient id="gold" x1="8" y1="9" x2="56" y2="55" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffeec2"/>
+      <stop offset="0.42" stop-color="#cda35a"/>
+      <stop offset="1" stop-color="#f6d995"/>
     </linearGradient>
-    <radialGradient id="iris" cx="32" cy="32" r="16" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#fff7d7"/>
-      <stop offset="0.55" stop-color="#dfb86f"/>
-      <stop offset="1" stop-color="#9f7733"/>
-    </radialGradient>
   </defs>
   <g fill="none" stroke="url(#gold)" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M6 32c7.7-10.2 16.4-15.3 26-15.3S50.3 21.8 58 32C50.3 42.2 41.6 47.3 32 47.3S13.7 42.2 6 32Z" stroke-width="3.2"/>
-    <path d="M32 8 52 32 32 56 12 32Z" stroke-width="1.4" opacity=".64"/>
-    <path d="M18.4 18.4 45.6 45.6M45.6 18.4 18.4 45.6" stroke-width="1.1" opacity=".42"/>
-    <circle cx="32" cy="32" r="15.2" stroke-width="1.6" opacity=".86"/>
-    <circle cx="32" cy="32" r="8.4" fill="url(#iris)" stroke-width="2.2"/>
-    <circle cx="32" cy="32" r="3.2" fill="#2b2113" stroke="#fff2bf" stroke-width=".8"/>
+    <path d="M5.8 32c6.7-8 15.4-12.6 26.2-12.6S51.5 24 58.2 32C51.5 40 42.8 44.6 32 44.6S12.5 40 5.8 32Z" stroke-width="2.35"/>
+    <circle cx="32" cy="32" r="20.8" stroke-width="1.25" opacity=".72"/>
+    <path d="M12.8 32 32 11.2 51.2 32 32 52.8Z" stroke-width="1.15" opacity=".7"/>
+    <path d="M17.3 22.4 32 17.1l14.7 5.3M17.3 41.6 32 46.9l14.7-5.3" stroke-width="1" opacity=".44"/>
+    <circle cx="32" cy="32" r="12" stroke-width="1.55"/>
+    <path d="M42.5 32c0 5.8-4.7 10.5-10.5 10.5S21.5 37.8 21.5 32 26.2 21.5 32 21.5 42.5 26.2 42.5 32Z" stroke-width="1.05" opacity=".74"/>
+    <path d="M24.4 32c1.7-4.3 4.3-6.5 7.8-6.5 3.7 0 6.8 3 6.8 6.6 0 3.2-2.6 5.8-5.8 5.8-2.8 0-5.1-2.2-5.1-5 0-2.3 1.9-4.2 4.2-4.2 1.9 0 3.4 1.5 3.4 3.4 0 1.5-1.2 2.7-2.7 2.7-1.1 0-2-.9-2-2" stroke-width="2"/>
   </g>
 </svg>
