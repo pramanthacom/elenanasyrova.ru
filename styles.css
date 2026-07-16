@@ -390,8 +390,9 @@ h3 {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(255, 253, 248, 0.02), rgba(255, 247, 239, 0.18)),
-    linear-gradient(135deg, rgba(248, 215, 208, 0.12), rgba(223, 245, 239, 0.08));
+    linear-gradient(180deg, rgba(255, 253, 248, 0.02), rgba(255, 247, 239, 0.22)),
+    linear-gradient(135deg, rgba(248, 215, 208, 0.18), rgba(223, 245, 239, 0.18)),
+    radial-gradient(circle at 18% 18%, rgba(255, 253, 248, 0.34), transparent 34%);
   pointer-events: none;
 }
 
@@ -401,7 +402,8 @@ h3 {
   min-height: 620px;
   display: block;
   object-fit: cover;
-  object-position: 50% 48%;
+  object-position: 50% 58%;
+  filter: saturate(0.74) contrast(0.84) brightness(1.2);
 }
 
 .about-visual figcaption {
