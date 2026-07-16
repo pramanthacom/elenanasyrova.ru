@@ -117,7 +117,7 @@ a {
 }
 
 .section {
-  padding: 88px 0;
+  padding: 72px 0;
 }
 
 .section--cream {
@@ -303,50 +303,46 @@ h3 {
   place-items: center;
   overflow: hidden;
   color: rgba(255, 253, 248, 0.95);
-  background:
-    linear-gradient(180deg, rgba(5, 41, 44, 0.04), rgba(5, 41, 44, 0.1)),
-    radial-gradient(circle at 26% 24%, rgba(223, 245, 239, 0.92), transparent 34%),
-    radial-gradient(circle at 76% 70%, rgba(248, 215, 208, 0.9), transparent 36%),
-    linear-gradient(135deg, #fdf7ef 0%, #e8f7f2 46%, #f8d7d0 100%);
   border: 1px solid rgba(255, 255, 255, 0.48);
 }
 
-.portrait-slot::before {
-  content: "△";
+.portrait-slot::after {
+  content: "";
   position: absolute;
-  top: 58px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: rgba(255, 255, 255, 0.82);
-  font-size: 58px;
-  line-height: 1;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 253, 248, 0.08), rgba(255, 247, 239, 0.28)),
+    linear-gradient(135deg, rgba(248, 215, 208, 0.18), rgba(223, 245, 239, 0.28));
+  pointer-events: none;
 }
 
-.portrait-slot div {
-  position: relative;
+.portrait-slot img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 58%;
+  filter: saturate(0.82) contrast(0.88) brightness(1.16);
+}
+
+.portrait-caption {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
   z-index: 1;
-  display: grid;
-  gap: 12px;
-  margin-top: 138px;
-  padding: 0 24px;
+  padding: 0 16px;
   text-align: center;
 }
 
-.portrait-slot span {
-  color: rgba(255, 253, 248, 0.94);
+.portrait-caption span {
+  color: rgba(255, 253, 248, 0.96);
   font-size: 13px;
   font-weight: 800;
   letter-spacing: 0;
   text-transform: uppercase;
-}
-
-.portrait-slot strong {
-  color: rgba(255, 253, 248, 0.98);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(28px, 3vw, 42px);
-  font-weight: 500;
-  line-height: 1.05;
-  text-shadow: 0 2px 18px rgba(5, 41, 44, 0.12);
+  text-shadow: 0 2px 16px rgba(5, 41, 44, 0.28);
 }
 
 .portrait-card p {
@@ -367,11 +363,48 @@ h3 {
   margin: 0;
 }
 
+.inline-photo {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid rgba(194, 125, 111, 0.14);
+  background: rgba(255, 253, 248, 0.72);
+  box-shadow: 0 24px 70px rgba(194, 125, 111, 0.12);
+}
+
+.inline-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 253, 248, 0.08), rgba(255, 247, 239, 0.24)),
+    linear-gradient(135deg, rgba(248, 215, 208, 0.18), rgba(223, 245, 239, 0.18));
+  pointer-events: none;
+}
+
+.inline-photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  filter: saturate(0.82) contrast(0.9) brightness(1.08);
+}
+
+.inline-photo--about {
+  height: 280px;
+  margin-top: 10px;
+}
+
+.inline-photo--about img {
+  object-position: 50% 36%;
+}
+
 .facts {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
-  margin-top: 54px;
+  margin-top: 42px;
 }
 
 .fact,
@@ -394,7 +427,7 @@ h3 {
 }
 
 .fact {
-  padding: 24px;
+  padding: 22px;
 }
 
 .fact span {
@@ -430,10 +463,12 @@ h3 {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
-  margin-top: 38px;
+  margin-top: 32px;
 }
 
 .practice-card {
+  position: relative;
+  overflow: hidden;
   padding: 22px;
   background:
     linear-gradient(145deg, rgba(255, 253, 248, 0.82), rgba(223, 245, 239, 0.52)),
@@ -445,6 +480,40 @@ h3 {
   margin: 12px 0 0;
   color: var(--muted);
   line-height: 1.48;
+}
+
+.practice-card--visual {
+  color: var(--pearl);
+  background: rgba(23, 43, 45, 0.18);
+}
+
+.practice-card--visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(23, 43, 45, 0.08), rgba(23, 43, 45, 0.52)),
+    linear-gradient(135deg, rgba(248, 215, 208, 0.22), rgba(223, 245, 239, 0.12));
+}
+
+.practice-card--visual img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 42%;
+  filter: saturate(0.78) contrast(0.88) brightness(1.1);
+}
+
+.practice-card--visual h3,
+.practice-card--visual p {
+  position: relative;
+  z-index: 1;
+}
+
+.practice-card--visual p {
+  color: rgba(255, 253, 248, 0.82);
 }
 
 .methods {
@@ -478,6 +547,7 @@ h3 {
 }
 
 .cover {
+  position: relative;
   aspect-ratio: 1;
   border-radius: 8px;
   display: grid;
@@ -491,6 +561,25 @@ h3 {
   border: 1px solid rgba(255, 255, 255, 0.54);
 }
 
+.cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(5, 41, 44, 0.04), rgba(5, 41, 44, 0.18)),
+    linear-gradient(135deg, rgba(248, 215, 208, 0.18), rgba(255, 253, 248, 0.2));
+}
+
+.cover img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 58%;
+  filter: saturate(0.82) contrast(0.9) brightness(1.08);
+}
+
 .album-card--mantra .cover {
   background:
     linear-gradient(180deg, rgba(5, 41, 44, 0.02), rgba(5, 41, 44, 0.12)),
@@ -499,6 +588,8 @@ h3 {
 }
 
 .cover span {
+  position: relative;
+  z-index: 1;
   font-family: Georgia, "Times New Roman", serif;
   font-size: 26px;
   font-style: italic;
@@ -527,10 +618,36 @@ h3 {
 }
 
 .download-panel {
-  padding: 30px;
+  overflow: hidden;
+  padding: 0 30px 30px;
   background:
     linear-gradient(145deg, rgba(255, 253, 248, 0.86), rgba(223, 245, 239, 0.34)),
     rgba(255, 253, 248, 0.74);
+}
+
+.download-photo {
+  position: relative;
+  height: 170px;
+  margin: 0 -30px 26px;
+  overflow: hidden;
+}
+
+.download-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 253, 248, 0.02), rgba(255, 253, 248, 0.66)),
+    linear-gradient(135deg, rgba(248, 215, 208, 0.2), rgba(223, 245, 239, 0.08));
+}
+
+.download-photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: 50% 36%;
+  filter: saturate(0.78) contrast(0.88) brightness(1.12);
 }
 
 .download-panel ol {
@@ -651,6 +768,24 @@ h3 {
 
   .portrait-frame {
     min-height: 340px;
+  }
+
+  .portrait-caption {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .portrait-caption span {
+    font-size: 11px;
+  }
+
+  .inline-photo--about {
+    height: 280px;
+  }
+
+  .download-photo {
+    height: 170px;
   }
 
 }
