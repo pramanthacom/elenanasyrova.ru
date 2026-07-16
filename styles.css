@@ -1040,34 +1040,48 @@ h3 {
 
 .lineage-panel {
   position: relative;
-  min-height: 520px;
   width: 100%;
   display: grid;
+  grid-template-columns: minmax(300px, 0.78fr) minmax(0, 1fr);
+  gap: 46px;
   align-items: center;
-  overflow: hidden;
-  border-radius: 0;
-  border: 0;
-  box-shadow: none;
 }
 
 .lineage-media {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: 1px solid rgba(255, 253, 248, 0.72);
+  border-radius: 8px;
+  box-shadow: 0 28px 90px rgba(189, 129, 117, 0.12);
+}
+
+.lineage-media::after {
+  content: "";
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(255, 253, 248, 0.84), rgba(255, 253, 248, 0.46) 48%, rgba(255, 253, 248, 0.18)),
-    radial-gradient(circle at 42% 50%, rgba(255, 253, 248, 0.7), transparent 34%),
-    url("assets/images/lineage-tree-cosmic.png");
-  background-size: cover;
-  background-position: 50% 50%;
+    linear-gradient(180deg, rgba(255, 253, 248, 0.06), rgba(255, 247, 239, 0.2)),
+    linear-gradient(135deg, rgba(248, 215, 208, 0.12), rgba(223, 245, 239, 0.16));
+}
+
+.lineage-media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: 50% 50%;
+  filter: saturate(0.9) contrast(0.92) brightness(1.04);
 }
 
 .lineage-copy {
   position: relative;
   z-index: 1;
   max-width: 720px;
-  margin: 0 auto;
-  padding: 58px 28px;
-  text-align: center;
+  margin: 0;
+  padding: 0;
+  text-align: left;
   color: var(--teal-950);
 }
 
@@ -1078,7 +1092,7 @@ h3 {
 }
 
 .lineage-copy p {
-  margin: 22px auto 0;
+  margin: 22px 0 0;
   max-width: 680px;
   color: rgba(23, 43, 45, 0.74);
   font-size: 20px;
@@ -1088,7 +1102,7 @@ h3 {
 .lineage-actions {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 12px;
   margin-top: 30px;
 }
@@ -1169,9 +1183,40 @@ h3 {
   .music-grid,
   .gift-grid,
   .contact-grid,
-  .festival-grid {
+  .festival-grid,
+  .section--wild .festival-grid,
+  .lineage-panel {
     grid-template-columns: 1fr;
     gap: 34px;
+  }
+
+  .section--wild h2 {
+    max-width: 100%;
+    font-size: clamp(38px, 9vw, 58px);
+  }
+
+  .section--wild .section-text {
+    max-width: 100%;
+  }
+
+  .festival-copy {
+    max-width: 100%;
+  }
+
+  .festival-visual {
+    width: min(100%, 560px);
+    height: auto;
+    aspect-ratio: 4 / 5;
+    justify-self: center;
+  }
+
+  .lineage-media {
+    width: min(100%, 620px);
+    justify-self: center;
+  }
+
+  .lineage-copy {
+    max-width: 100%;
   }
 
   .about-visual,
@@ -1221,6 +1266,11 @@ h3 {
     width: min(100% - 28px, 1120px);
   }
 
+  .hero,
+  .section {
+    padding: 52px 0;
+  }
+
   .topnav {
     display: none;
   }
@@ -1247,6 +1297,28 @@ h3 {
   .practice-grid,
   .actions--vertical {
     grid-template-columns: 1fr;
+  }
+
+  .practice-grid {
+    gap: 14px;
+  }
+
+  .practice-card {
+    min-height: 300px;
+    padding: 22px;
+  }
+
+  .methods {
+    width: auto;
+    margin-left: -14px;
+    margin-right: -14px;
+    padding: 0 14px 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .methods::-webkit-scrollbar {
+    display: none;
   }
 
   .contact-links {
@@ -1293,11 +1365,13 @@ h3 {
   }
 
   .about-visual figcaption {
-    width: calc(100% - 36px);
     left: 18px;
+    right: 18px;
     bottom: 18px;
+    width: auto;
     padding: 13px 14px;
     font-size: 11px;
+    transform: none;
   }
 
   .about-points {
@@ -1308,12 +1382,44 @@ h3 {
     min-height: 0;
   }
 
-  .practice-card {
-    min-height: 240px;
-  }
-
   .download-photo {
     height: 170px;
+  }
+
+  .section--wild h2,
+  .lineage-copy h2 {
+    font-size: clamp(38px, 12vw, 50px);
+    line-height: 0.98;
+  }
+
+  .festival-list {
+    grid-template-columns: 1fr;
+  }
+
+  .festival-list article {
+    grid-template-columns: 30px 1fr;
+    padding: 14px;
+  }
+
+  .festival-visual {
+    aspect-ratio: 4 / 5;
+    max-height: 520px;
+  }
+
+  .lineage-media {
+    aspect-ratio: 4 / 3;
+  }
+
+  .lineage-copy {
+    text-align: left;
+  }
+
+  .lineage-copy p {
+    font-size: 16px;
+  }
+
+  .lineage-actions {
+    justify-content: flex-start;
   }
 
 }
