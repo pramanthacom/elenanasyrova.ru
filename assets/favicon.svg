@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Golden eye symbol">
+  <defs>
+    <linearGradient id="gold" x1="10" y1="8" x2="54" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff0bd"/>
+      <stop offset="0.42" stop-color="#d9ad5c"/>
+      <stop offset="1" stop-color="#f4d894"/>
+    </linearGradient>
+    <radialGradient id="iris" cx="32" cy="32" r="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff7d7"/>
+      <stop offset="0.55" stop-color="#dfb86f"/>
+      <stop offset="1" stop-color="#9f7733"/>
+    </radialGradient>
+  </defs>
+  <g fill="none" stroke="url(#gold)" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6 32c7.7-10.2 16.4-15.3 26-15.3S50.3 21.8 58 32C50.3 42.2 41.6 47.3 32 47.3S13.7 42.2 6 32Z" stroke-width="3.2"/>
+    <path d="M32 8 52 32 32 56 12 32Z" stroke-width="1.4" opacity=".64"/>
+    <path d="M18.4 18.4 45.6 45.6M45.6 18.4 18.4 45.6" stroke-width="1.1" opacity=".42"/>
+    <circle cx="32" cy="32" r="15.2" stroke-width="1.6" opacity=".86"/>
+    <circle cx="32" cy="32" r="8.4" fill="url(#iris)" stroke-width="2.2"/>
+    <circle cx="32" cy="32" r="3.2" fill="#2b2113" stroke="#fff2bf" stroke-width=".8"/>
+  </g>
+</svg>

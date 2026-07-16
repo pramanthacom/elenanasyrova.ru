@@ -195,6 +195,15 @@ h1 {
   line-height: 0.84;
 }
 
+.hero h1 {
+  color: var(--teal-950);
+  background: linear-gradient(115deg, var(--teal-950) 0%, #1f5653 46%, #b9846d 76%, #e4c994 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 18px 42px rgba(185, 132, 109, 0.08);
+}
+
 h2 {
   max-width: 820px;
   font-size: clamp(38px, 5.2vw, 76px);
@@ -360,7 +369,7 @@ h3 {
 }
 
 .section--about {
-  padding: 54px 0;
+  padding: 58px 0;
   background:
     linear-gradient(135deg, rgba(223, 245, 239, 0.28), transparent 42%),
     linear-gradient(180deg, #fff8f2 0%, #fffdf8 100%);
@@ -368,19 +377,21 @@ h3 {
 
 .about-showcase {
   display: grid;
-  grid-template-columns: minmax(0, 0.96fr) minmax(360px, 0.86fr);
-  gap: 48px;
-  align-items: start;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.74fr);
+  gap: 28px 44px;
+  align-items: center;
 }
 
 .about-copy h2 {
-  font-size: clamp(40px, 4vw, 58px);
+  font-size: clamp(42px, 4.6vw, 62px);
   line-height: 0.98;
 }
 
 .about-visual {
   position: relative;
-  height: clamp(460px, 62vh, 560px);
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  height: clamp(430px, 58vh, 540px);
   min-height: 0;
   margin: 0;
   overflow: hidden;
@@ -393,9 +404,9 @@ h3 {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(255, 253, 248, 0.02), rgba(255, 247, 239, 0.22)),
-    linear-gradient(135deg, rgba(248, 215, 208, 0.18), rgba(223, 245, 239, 0.18)),
-    radial-gradient(circle at 18% 18%, rgba(255, 253, 248, 0.34), transparent 34%);
+    linear-gradient(180deg, rgba(255, 253, 248, 0.02), rgba(255, 247, 239, 0.26)),
+    linear-gradient(135deg, rgba(248, 215, 208, 0.16), rgba(223, 245, 239, 0.2)),
+    radial-gradient(circle at 18% 18%, rgba(255, 253, 248, 0.42), transparent 34%);
   pointer-events: none;
 }
 
@@ -411,44 +422,48 @@ h3 {
 
 .about-visual figcaption {
   position: absolute;
-  left: 50%;
-  bottom: 0;
+  left: 32px;
+  bottom: 36px;
   z-index: 1;
   width: min(72%, 360px);
-  padding: 16px 22px;
+  padding: 16px 20px;
   color: var(--pearl);
-  background: rgba(226, 188, 166, 0.82);
-  transform: translateX(-50%);
+  background: rgba(226, 188, 166, 0.76);
+  border: 1px solid rgba(255, 253, 248, 0.42);
   text-align: center;
   font-weight: 800;
   font-size: 13px;
   text-transform: uppercase;
+  backdrop-filter: blur(12px);
 }
 
 .about-copy {
-  display: grid;
-  gap: 18px;
+  grid-column: 1;
+  grid-row: 1;
+  max-width: 650px;
 }
 
 .about-lede {
-  margin: 0;
+  margin: 18px 0 0;
   color: var(--muted);
   font-size: 17px;
   line-height: 1.5;
 }
 
 .about-points {
+  grid-column: 1;
+  grid-row: 2;
   display: grid;
-  gap: 10px;
-  margin-top: 4px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  align-self: start;
 }
 
 .about-points article {
-  display: grid;
-  grid-template-columns: 36px minmax(0, 1fr);
-  column-gap: 12px;
-  align-items: start;
-  padding: 14px 16px;
+  display: flex;
+  min-height: 148px;
+  flex-direction: column;
+  padding: 16px;
   border: 1px solid rgba(189, 129, 117, 0.16);
   border-radius: 8px;
   background: rgba(255, 253, 248, 0.68);
@@ -459,13 +474,11 @@ h3 {
   color: var(--clay);
   font-size: 12px;
   font-weight: 800;
-  grid-row: span 2;
-  padding-top: 2px;
 }
 
 .about-points h3 {
-  margin-top: 0;
-  font-size: 19px;
+  margin-top: 18px;
+  font-size: 18px;
 }
 
 .about-points p {
@@ -587,24 +600,103 @@ h3 {
 .practice-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
-  margin-top: 32px;
+  gap: 16px;
+  margin-top: 34px;
 }
 
 .practice-card {
   position: relative;
   overflow: hidden;
-  padding: 22px;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+  color: var(--pearl);
+  background: var(--teal-900);
+  border-color: rgba(255, 253, 248, 0.34);
+}
+
+.practice-card::before,
+.practice-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.practice-card::before {
+  background-image: var(--practice-image);
+  background-size: cover;
+  background-position: var(--practice-position, center);
+  filter: saturate(0.82) contrast(0.9) brightness(1.05);
+  transform: scale(1.04);
+  transition: transform 420ms ease;
+}
+
+.practice-card::after {
   background:
-    linear-gradient(145deg, rgba(255, 253, 248, 0.82), rgba(223, 245, 239, 0.52)),
-    rgba(255, 253, 248, 0.62);
-  border-color: var(--line-light);
+    linear-gradient(180deg, rgba(255, 253, 248, 0.12) 0%, rgba(27, 62, 61, 0.36) 54%, rgba(24, 60, 61, 0.82) 100%),
+    linear-gradient(135deg, rgba(248, 215, 208, 0.3), rgba(244, 216, 148, 0.1) 48%, rgba(107, 168, 162, 0.24));
+}
+
+.practice-card:hover::before {
+  transform: scale(1.09);
+}
+
+.practice-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.practice-card span {
+  width: fit-content;
+  margin-bottom: 12px;
+  padding-bottom: 5px;
+  color: #f3d8a5;
+  border-bottom: 1px solid rgba(243, 216, 165, 0.54);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.practice-card h3 {
+  color: var(--pearl);
+  font-size: 23px;
+  line-height: 1.12;
+  text-shadow: 0 2px 18px rgba(13, 35, 35, 0.18);
 }
 
 .practice-card p {
   margin: 12px 0 0;
-  color: var(--muted);
+  color: rgba(255, 253, 248, 0.84);
   line-height: 1.48;
+  text-shadow: 0 2px 18px rgba(13, 35, 35, 0.16);
+}
+
+.practice-card--scenarios {
+  --practice-image: url("assets/images/lena-field-texture.jpg");
+  --practice-position: 50% 54%;
+}
+
+.practice-card--body {
+  --practice-image: url("assets/images/lena-ritual-shell.jpg");
+  --practice-position: 50% 58%;
+}
+
+.practice-card--threshold {
+  --practice-image: url("assets/images/lena-depth-white.jpg");
+  --practice-position: 50% 30%;
+}
+
+.practice-card--subtle {
+  --practice-image: url("assets/images/lena-hero-field.jpg");
+  --practice-position: 50% 58%;
+}
+
+.practice-card--subtle::after {
+  background:
+    linear-gradient(180deg, rgba(255, 253, 248, 0.06) 0%, rgba(30, 70, 68, 0.44) 48%, rgba(24, 60, 61, 0.88) 100%),
+    linear-gradient(135deg, rgba(248, 215, 208, 0.24), rgba(244, 216, 148, 0.12) 48%, rgba(107, 168, 162, 0.28));
 }
 
 .methods {
@@ -804,6 +896,17 @@ h3 {
     height: 520px;
   }
 
+  .about-copy,
+  .about-visual,
+  .about-points {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .about-points {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .facts,
   .practice-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -888,8 +991,22 @@ h3 {
 
   .about-visual figcaption {
     width: calc(100% - 36px);
+    left: 18px;
+    bottom: 18px;
     padding: 13px 14px;
     font-size: 11px;
+  }
+
+  .about-points {
+    grid-template-columns: 1fr;
+  }
+
+  .about-points article {
+    min-height: 0;
+  }
+
+  .practice-card {
+    min-height: 240px;
   }
 
   .download-photo {
