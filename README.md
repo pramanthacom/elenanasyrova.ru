@@ -1,7 +1,12 @@
 # elenanasyrova.ru
 
-Небольшой сайт-визитка Елены Насыровой / Алтеи для QR-кода на Ecstatic Wild Festival.
-Рабочий домен для GitHub Pages: `master.elenanasyrova.ru`.
+Небольшой сайт-визитка Елены Насыровой / Алтеи для QR-кода и дальнейшего использования как короткая мастер-страница.
+
+Временная публикация через GitHub Pages:
+
+`https://pramanthacom.github.io/elenanasyrova.ru/`
+
+Позже можно вернуть кастомный домен, например `master.elenanasyrova.ru`, когда будет решен вопрос с DNS/CNAME.
 
 ## Смысл страницы
 
