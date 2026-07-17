@@ -1390,7 +1390,7 @@ h3 {
 
 .contact-links {
   display: grid;
-  grid-template-columns: repeat(6, 52px) minmax(220px, auto);
+  grid-template-columns: repeat(6, 52px) repeat(2, minmax(190px, auto));
   justify-content: center;
   gap: 12px;
 }
@@ -1415,12 +1415,19 @@ h3 {
   fill: currentColor;
 }
 
-.contact-links .contact-cluster {
-  min-width: 220px;
+.contact-links .contact-cluster,
+.contact-links .contact-service {
+  min-width: 190px;
   padding: 0 22px;
   color: var(--ink);
   background: rgba(255, 253, 248, 0.78);
   border-color: rgba(255, 253, 248, 0.62);
+}
+
+.contact-links .contact-service {
+  color: var(--pearl);
+  background: rgba(202, 144, 132, 0.72);
+  border-color: rgba(255, 253, 248, 0.5);
 }
 
 .contact-links a:hover {
@@ -1576,7 +1583,8 @@ h3 {
     grid-template-columns: repeat(6, 52px);
   }
 
-  .contact-links .contact-cluster {
+  .contact-links .contact-cluster,
+  .contact-links .contact-service {
     grid-column: 1 / -1;
     justify-self: center;
   }
@@ -1755,7 +1763,8 @@ h3 {
     grid-template-columns: repeat(3, 52px);
   }
 
-  .contact-links .contact-cluster {
+  .contact-links .contact-cluster,
+  .contact-links .contact-service {
     width: 100%;
   }
 
