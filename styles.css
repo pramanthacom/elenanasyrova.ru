@@ -387,9 +387,9 @@ h3 {
 .button--primary:hover,
 .button--primary:focus-visible {
   color: var(--pearl);
-  background:
-    linear-gradient(135deg, rgba(223, 245, 239, 0.9), rgba(248, 215, 208, 0.72));
-  border-color: rgba(228, 201, 148, 0.58);
+  background: #b8ddd8;
+  border-color: rgba(107, 168, 162, 0.38);
+  box-shadow: 0 14px 34px rgba(107, 168, 162, 0.14);
 }
 
 .button--soft {
@@ -403,9 +403,8 @@ h3 {
 .button--line-dark:hover,
 .button--line-dark:focus-visible {
   color: var(--teal-950);
-  background:
-    linear-gradient(135deg, rgba(255, 253, 248, 0.78), rgba(223, 245, 239, 0.66));
-  border-color: rgba(228, 201, 148, 0.48);
+  background: rgba(223, 245, 239, 0.72);
+  border-color: rgba(107, 168, 162, 0.34);
 }
 
 .button--line {
@@ -1192,6 +1191,14 @@ h3 {
   justify-self: start;
   text-align: left;
   color: var(--teal-950);
+}
+
+.lineage-copy .kicker {
+  margin-bottom: 18px;
+  color: #d9b99f;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
 }
 
 .lineage-copy h2 {
