@@ -22,11 +22,12 @@ const botName = env.BOT_NAME || "Елена Насырова Бот";
 const materials = JSON.parse(readFileSync(join(botDir, "materials.json"), "utf8"));
 
 const socialLinks = [
-  ["Telegram", env.CONTACT_TG_URL || "https://t.me/alteyapro"],
-  ["Rutube", env.RUTUBE_CHANNEL_URL || "https://rutube.ru/channel/49466882/"],
-  ["VK", env.VK_URL || "https://vk.com/alteyaprogroup"],
-  ["Instagram", env.INSTAGRAM_URL || "https://www.instagram.com/nasyrovaelena?igshid=MzRlODBiNWFlZA%3D%3D"],
-  ["Сайт", env.SITE_URL || "https://elena-nasyrova.ru/"]
+  ["Кластер уникальности", channelInviteUrl, "канал с материалами, мыслями и практиками"],
+  ["✈️ Telegram", env.CONTACT_TG_URL || "https://t.me/alteyapro", "личные сообщения и быстрый контакт"],
+  ["▶️ Rutube", env.RUTUBE_CHANNEL_URL || "https://rutube.ru/channel/49466882/", "подкасты Елены с мастерами"],
+  ["vk VK", env.VK_URL || "https://vk.com/alteyaprogroup", "анонсы и дополнительные материалы"],
+  ["◎ Instagram", env.INSTAGRAM_URL || "https://www.instagram.com/nasyrovaelena?igshid=MzRlODBiNWFlZA%3D%3D", "визуальная лента и живой контекст"],
+  ["◇ Сайт", env.SITE_URL || "https://elena-nasyrova.ru/", "визитка, музыка и практики"]
 ];
 
 const flows = new Set(["sacrameditations", "sila_roda"]);
@@ -193,7 +194,7 @@ async function sendGate(chatId, user, flow) {
 
 async function sendMaterial(chatId, flow) {
   const material = materials[flow];
-  const materialUrl = material.envUrl ? env[material.envUrl] : "";
+  const materialUrl = material.envUrl ? env[material.envUrl] || material.fallbackUrl || "" : material.fallbackUrl || "";
   const rows = [];
 
   if (materialUrl) rows.push([{ text: material.title, url: materialUrl }]);
@@ -207,17 +208,30 @@ async function sendMaterial(chatId, flow) {
     "",
     materialUrl ? "Нажмите кнопку ниже, чтобы открыть материал." : material.emptyText
   ].join("\n"), { inline_keyboard: rows });
+
+  await sendSocials(chatId, {
+    intro: "Еще можно остаться рядом с Еленой в других пространствах. Там больше уникального контента, подкасты, анонсы и живые материалы:"
+  });
 }
 
-async function sendSocials(chatId) {
+async function sendSocials(chatId, options = {}) {
   const rows = socialLinks
     .filter(([, url]) => Boolean(url))
     .map(([title, url]) => [{ text: title, url }]);
 
+  const list = socialLinks
+    .filter(([, url]) => Boolean(url))
+    .map(([title, , note]) => `${title} — ${note}`)
+    .join("\n");
+
   await sendMessage(chatId, [
-    "Ссылки Елены:",
+    "Где еще быть рядом:",
     "",
-    "Можно подписаться, сохранить страницу или вернуться сюда позже."
+    options.intro || "Можно подписаться, сохранить страницу или вернуться сюда позже.",
+    "",
+    list,
+    "",
+    "Почта для связи: altadaran@gmail.com"
   ].join("\n"), { inline_keyboard: rows });
 }
 
