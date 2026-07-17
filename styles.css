@@ -60,8 +60,8 @@ a {
   position: sticky;
   top: 0;
   z-index: 50;
-  min-height: 96px;
-  padding: 16px max(18px, calc((100vw - 1160px) / 2));
+  min-height: 74px;
+  padding: 10px max(18px, calc((100vw - 1160px) / 2));
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
@@ -74,39 +74,23 @@ a {
 .brand {
   display: grid;
   justify-items: center;
-  gap: 6px;
   color: #dfbfa8;
   text-align: center;
 }
 
 .brand-mark {
-  width: 46px;
-  height: 46px;
+  width: 48px;
+  height: 48px;
   display: grid;
   place-items: center;
 }
 
 .brand-mark img {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   display: block;
   object-fit: contain;
   filter: drop-shadow(0 10px 20px rgba(191, 155, 107, 0.14));
-}
-
-.brand span {
-  font-family: var(--serif);
-  font-size: 30px;
-  font-weight: 600;
-  line-height: 1;
-}
-
-.brand > span:last-child {
-  font-family: var(--sans);
-  font-size: 18px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
 }
 
 .topnav {
@@ -348,7 +332,7 @@ h3 {
 
 .button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 34px rgba(64, 43, 60, 0.14);
+  box-shadow: 0 14px 34px rgba(194, 125, 111, 0.12);
 }
 
 .button:active {
@@ -363,9 +347,10 @@ h3 {
 
 .button--primary:hover,
 .button--primary:focus-visible {
-  color: var(--pearl);
-  background: var(--teal-800);
-  border-color: rgba(107, 168, 162, 0.56);
+  color: var(--ink);
+  background:
+    linear-gradient(135deg, rgba(223, 245, 239, 0.9), rgba(248, 215, 208, 0.72));
+  border-color: rgba(228, 201, 148, 0.58);
 }
 
 .button--soft {
@@ -379,8 +364,9 @@ h3 {
 .button--line-dark:hover,
 .button--line-dark:focus-visible {
   color: var(--teal-950);
-  background: rgba(223, 245, 239, 0.78);
-  border-color: rgba(107, 168, 162, 0.52);
+  background:
+    linear-gradient(135deg, rgba(255, 253, 248, 0.78), rgba(223, 245, 239, 0.66));
+  border-color: rgba(228, 201, 148, 0.48);
 }
 
 .button--line {
@@ -1121,17 +1107,19 @@ h3 {
 
 .lineage-panel {
   position: relative;
-  width: 100%;
+  width: min(1180px, calc(100% - 72px));
   display: grid;
-  grid-template-columns: minmax(300px, 0.78fr) minmax(0, 1fr);
-  gap: 46px;
+  grid-template-columns: minmax(440px, 0.94fr) minmax(360px, 0.78fr);
+  gap: 44px;
   align-items: center;
 }
 
 .lineage-media {
   position: relative;
+  justify-self: end;
+  width: min(100%, 620px);
   margin: 0;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1.18 / 1;
   overflow: hidden;
   border: 1px solid rgba(255, 253, 248, 0.72);
   border-radius: 8px;
@@ -1159,22 +1147,23 @@ h3 {
 .lineage-copy {
   position: relative;
   z-index: 1;
-  max-width: 720px;
+  max-width: 610px;
   margin: 0;
   padding: 0;
+  justify-self: start;
   text-align: left;
   color: var(--teal-950);
 }
 
 .lineage-copy h2 {
-  max-width: none;
+  max-width: 560px;
   color: var(--teal-950);
   text-shadow: 0 18px 46px rgba(255, 253, 248, 0.7);
 }
 
 .lineage-copy p {
   margin: 22px 0 0;
-  max-width: 680px;
+  max-width: 600px;
   color: rgba(23, 43, 45, 0.74);
   font-size: 20px;
   line-height: 1.54;
@@ -1222,7 +1211,7 @@ h3 {
 
 .section--final .kicker {
   color: #f3d8a5;
-  text-shadow: 0 3px 18px rgba(13, 35, 35, 0.55);
+  text-shadow: none;
 }
 
 .contact-links {
@@ -1262,7 +1251,7 @@ h3 {
 
 .contact-links a:hover {
   transform: translateY(-2px);
-  background: rgba(189, 129, 117, 0.88);
+  background: rgba(202, 144, 132, 0.82);
 }
 
 .contact-links a:active {
@@ -1332,6 +1321,10 @@ h3 {
   .lineage-panel {
     grid-template-columns: 1fr;
     gap: 34px;
+  }
+
+  .lineage-panel {
+    width: min(100% - 36px, 1120px);
   }
 
   .section--wild h2 {
@@ -1410,26 +1403,28 @@ h3 {
     width: min(100% - 28px, 1120px);
   }
 
+  .lineage-panel {
+    width: min(100% - 28px, 1120px);
+  }
+
   .topbar {
     justify-items: start;
     padding: 14px 20px;
   }
 
   .brand {
-    justify-items: start;
+    justify-items: center;
   }
 
   .brand-mark {
-    display: none;
+    display: grid;
+    width: 40px;
+    height: 40px;
   }
 
-  .brand > span:last-child {
-    font-family: var(--serif);
-    font-size: 28px;
-    font-weight: 500;
-    letter-spacing: 0;
-    text-transform: none;
-    color: var(--teal-950);
+  .brand-mark img {
+    width: 38px;
+    height: 38px;
   }
 
   .hero,
@@ -1466,22 +1461,29 @@ h3 {
   }
 
   .practice-grid {
+    width: 100%;
     gap: 14px;
   }
 
   .practice-card {
+    width: 100%;
     min-height: 300px;
     padding: 22px;
   }
 
   .methods {
     width: 100%;
+    max-width: 100%;
     flex-wrap: wrap;
     margin-left: 0;
     margin-right: 0;
     padding: 0;
     overflow: visible;
     justify-content: flex-start;
+  }
+
+  .methods span {
+    max-width: 100%;
   }
 
   .contact-links {
@@ -1631,8 +1633,25 @@ h3 {
 
 @media (prefers-reduced-motion: no-preference) {
   .brand-mark img {
-    animation: eyeBreath 5.6s ease-in-out infinite;
+    animation: eyeBreath 4.8s ease-in-out infinite;
     transform-origin: 50% 50%;
+  }
+
+  html.reveal-ready .reveal-item {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 760ms ease,
+      transform 760ms ease,
+      filter 760ms ease;
+    animation: none;
+    filter: saturate(0.92);
+  }
+
+  html.reveal-ready .reveal-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: saturate(1);
   }
 
   .hero__copy {
@@ -1680,12 +1699,12 @@ h3 {
 @keyframes eyeBreath {
   0%,
   100% {
-    opacity: 0.84;
-    transform: scale(0.96);
+    opacity: 0.78;
+    transform: scale(0.92);
   }
   50% {
     opacity: 1;
-    transform: scale(1.05);
+    transform: scale(1.12);
   }
 }
 

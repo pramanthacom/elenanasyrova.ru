@@ -20,7 +20,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <script>document.documentElement.classList.add("reveal-ready");</script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -35,7 +43,6 @@
       <span class="brand-mark" aria-hidden="true">
         <img src="assets/images/eye.svg" alt="">
       </span>
-      <span>Елена Насырова</span>
     </a>
     <nav class="topnav topnav--right" aria-label="Дополнительные разделы">
       <a href="#wild">Wild</a>
@@ -333,5 +340,45 @@
       </div>
     </section>
   </main>
+  <script>
+    (() => {
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+        document.documentElement.classList.remove("reveal-ready");
+        return;
+      }
+
+      const selectors = [
+        ".hero__copy",
+        ".portrait-card",
+        ".section",
+        ".practice-card",
+        ".album-card",
+        ".download-panel",
+        ".festival-list article",
+        ".festival-visual",
+        ".lineage-panel",
+        ".contact-sanctuary"
+      ];
+
+      const items = [...document.querySelectorAll(selectors.join(","))];
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      }, {
+        rootMargin: "0px 0px -12% 0px",
+        threshold: 0.12
+      });
+
+      items.forEach((item) => {
+        item.classList.add("reveal-item");
+        if (item.closest(".hero")) item.classList.add("is-visible");
+        observer.observe(item);
+      });
+    })();
+  </script>
 </body>
 </html>
