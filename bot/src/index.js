@@ -76,7 +76,13 @@ async function handleUpdate(update) {
 
 async function handleMessage(message) {
   const chatId = message.chat.id;
+  const chatType = message.chat.type;
   const text = (message.text || "").trim();
+
+  if (chatType !== "private") {
+    return;
+  }
+
   const [commandRaw, payloadRaw] = text.split(/\s+/, 2);
   const command = commandRaw?.split("@")[0];
   const payload = normalizePayload(payloadRaw);
@@ -116,7 +122,16 @@ async function handleMessage(message) {
 
 async function handleCallback(callback) {
   const chatId = callback.message.chat.id;
+  const chatType = callback.message.chat.type;
   const data = callback.data || "";
+
+  if (chatType !== "private") {
+    await api("answerCallbackQuery", {
+      callback_query_id: callback.id,
+      text: "Напишите боту в личные сообщения"
+    });
+    return;
+  }
 
   if (data.startsWith("check:")) {
     const flow = normalizePayload(data.slice("check:".length));
