@@ -25,19 +25,20 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
   margin: 0;
   width: 100%;
+  max-width: 100%;
   color: var(--ink);
   background:
     linear-gradient(115deg, rgba(223, 245, 239, 0.34), transparent 42%),
     linear-gradient(180deg, var(--pearl) 0%, var(--cream) 100%);
   font-family: var(--sans);
   letter-spacing: 0;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 img,
@@ -128,7 +129,44 @@ a {
   transform: translateY(-1px);
 }
 
+.menu-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid rgba(223, 191, 168, 0.52);
+  border-radius: 999px;
+  background: rgba(255, 253, 248, 0.7);
+  color: #dfbfa8;
+  place-items: center;
+  cursor: pointer;
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.menu-toggle span {
+  grid-column: 1;
+  grid-row: 1;
+  width: 17px;
+  height: 2px;
+  border-radius: 99px;
+  background: currentColor;
+  transition: transform 220ms ease, opacity 180ms ease;
+}
+
+.menu-toggle span:nth-child(1) {
+  transform: translateY(-6px);
+}
+
+.menu-toggle span:nth-child(3) {
+  transform: translateY(6px);
+}
+
+.mobile-menu {
+  display: none;
+}
+
 .topnav a:focus-visible,
+.menu-toggle:focus-visible,
 .button:focus-visible,
 .contact-links a:focus-visible {
   outline: 2px solid rgba(107, 168, 162, 0.54);
@@ -775,7 +813,7 @@ h3 {
 }
 
 .practice-card--scenarios {
-  --practice-image: url("assets/images/lena-scenarios-pastel.png");
+  --practice-image: url("assets/images/lena-scenarios-pastel-lite.jpg");
   --practice-position: 40% 18%;
   --practice-size: cover;
   --practice-filter: saturate(0.86) contrast(0.9) brightness(1.04);
@@ -784,7 +822,7 @@ h3 {
 }
 
 .practice-card--body {
-  --practice-image: url("assets/images/lena-body-pastel.png");
+  --practice-image: url("assets/images/lena-body-pastel-lite.jpg");
   --practice-position: 52% 46%;
   --practice-size: 118% auto;
   --practice-filter: saturate(0.9) contrast(0.9) brightness(1.03);
@@ -793,7 +831,7 @@ h3 {
 }
 
 .practice-card--threshold {
-  --practice-image: url("assets/images/lena-threshold-pastel.png");
+  --practice-image: url("assets/images/lena-threshold-pastel-lite.jpg");
   --practice-position: 44% 42%;
   --practice-size: 174% auto;
   --practice-filter: saturate(0.9) contrast(0.9) brightness(1.02);
@@ -803,7 +841,7 @@ h3 {
 }
 
 .practice-card--subtle {
-  --practice-image: url("assets/images/lena-subtle-pastel.png");
+  --practice-image: url("assets/images/lena-subtle-pastel-lite.jpg");
   --practice-position: 51% 28%;
   --practice-size: cover;
   --practice-filter: saturate(0.88) contrast(0.9) brightness(1.02);
@@ -1292,6 +1330,8 @@ h3 {
 }
 
 @supports not (overflow-x: clip) {
+  html,
+  body,
   .section {
     overflow-x: hidden;
   }
@@ -1409,11 +1449,14 @@ h3 {
   }
 
   .topbar {
-    justify-items: start;
+    grid-template-columns: 44px minmax(0, 1fr) 44px;
+    justify-items: center;
     padding: 14px 20px;
+    gap: 8px 12px;
   }
 
   .brand {
+    grid-column: 2;
     justify-items: center;
   }
 
@@ -1435,6 +1478,63 @@ h3 {
 
   .topnav {
     display: none;
+  }
+
+  .menu-toggle {
+    grid-column: 3;
+    display: grid;
+    justify-self: end;
+  }
+
+  .topbar.is-menu-open .menu-toggle {
+    background: rgba(248, 215, 208, 0.52);
+    border-color: rgba(228, 201, 148, 0.52);
+  }
+
+  .topbar.is-menu-open .menu-toggle span:nth-child(1) {
+    transform: rotate(45deg);
+  }
+
+  .topbar.is-menu-open .menu-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .topbar.is-menu-open .menu-toggle span:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+
+  .mobile-menu {
+    grid-column: 1 / -1;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: max-height 260ms ease, opacity 220ms ease, transform 220ms ease;
+  }
+
+  .topbar.is-menu-open .mobile-menu {
+    max-height: 320px;
+    opacity: 1;
+    transform: translateY(0);
+    padding-top: 8px;
+  }
+
+  .mobile-menu a {
+    min-height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(223, 191, 168, 0.38);
+    border-radius: 999px;
+    background: rgba(255, 253, 248, 0.68);
+    color: #c69d83;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
   }
 
   h1 {
@@ -1640,11 +1740,11 @@ h3 {
 
   html.reveal-ready .reveal-item {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(18px);
     transition:
-      opacity 760ms ease,
-      transform 760ms ease,
-      filter 760ms ease;
+      opacity 560ms ease,
+      transform 560ms ease,
+      filter 560ms ease;
     animation: none;
     filter: saturate(0.92);
   }
@@ -1655,46 +1755,6 @@ h3 {
     filter: saturate(1);
   }
 
-  .hero__copy {
-    animation: riseIn 780ms ease both;
-  }
-
-  .portrait-card {
-    animation: riseIn 900ms 120ms ease both;
-  }
-
-  .fact,
-  .practice-card,
-  .album-card,
-  .download-panel,
-  .about-visual,
-  .about-points article,
-  .festival-visual,
-  .festival-list article,
-  .lineage-media,
-  .lineage-copy,
-  .contact-sanctuary,
-  .contact-links a {
-    animation: riseIn 680ms ease both;
-  }
-
-  .fact:nth-child(2),
-  .practice-card:nth-child(2),
-  .album-card:nth-child(2),
-  .contact-links a:nth-child(2) {
-    animation-delay: 80ms;
-  }
-
-  .fact:nth-child(3),
-  .practice-card:nth-child(3),
-  .contact-links a:nth-child(3) {
-    animation-delay: 160ms;
-  }
-
-  .practice-card:nth-child(4),
-  .contact-links a:nth-child(4) {
-    animation-delay: 240ms;
-  }
 }
 
 @keyframes eyeBreath {
@@ -1706,16 +1766,5 @@ h3 {
   50% {
     opacity: 1;
     transform: scale(1.12);
-  }
-}
-
-@keyframes riseIn {
-  from {
-    opacity: 0;
-    translate: 0 18px;
-  }
-  to {
-    opacity: 1;
-    translate: 0 0;
   }
 }

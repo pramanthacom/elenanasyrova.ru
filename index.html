@@ -28,7 +28,9 @@
   <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
-  <script>document.documentElement.classList.add("reveal-ready");</script>
+  <script>
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  </script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -45,6 +47,20 @@
       </span>
     </a>
     <nav class="topnav topnav--right" aria-label="Дополнительные разделы">
+      <a href="#wild">Wild</a>
+      <a href="#lineage">Сила рода</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Мобильное меню">
+      <a href="#about">Кто она</a>
+      <a href="#practice">Практика</a>
+      <a href="#music">Музыка</a>
+      <a href="#gift">Скачать</a>
       <a href="#wild">Wild</a>
       <a href="#lineage">Сила рода</a>
       <a href="#contact">Контакты</a>
@@ -74,7 +90,7 @@
         <aside class="portrait-card" aria-label="Портрет Елены">
           <div class="portrait-frame">
             <div class="portrait-slot">
-              <img src="assets/images/lena-hero-soft-portrait.png" alt="Портрет Елены Насыровой" fetchpriority="high" decoding="async">
+              <img src="assets/images/lena-hero-soft-portrait-lite.jpg" alt="Портрет Елены Насыровой" fetchpriority="high" decoding="async">
               <div class="portrait-caption">
                 <span>сознание • душа • тело • род • звезды</span>
               </div>
@@ -189,7 +205,7 @@
         <div class="album-list">
           <article class="album-card album-card--voice">
             <div class="cover">
-              <img src="assets/images/album-master-message.jpg" alt="Обложка альбома Елены Насыровой Мастер Послание" loading="lazy" decoding="async">
+              <img src="assets/images/album-master-message-lite.jpg" alt="Обложка альбома Елены Насыровой Мастер Послание" loading="lazy" decoding="async">
             </div>
             <div class="album-copy">
               <span>альбом</span>
@@ -200,7 +216,7 @@
           </article>
           <article class="album-card album-card--mantra">
             <div class="cover">
-              <img src="assets/images/album-weightlessness.jpg" alt="Обложка альбома Елены Насыровой Невесомость" loading="lazy" decoding="async">
+              <img src="assets/images/album-weightlessness-lite.jpg" alt="Обложка альбома Елены Насыровой Невесомость" loading="lazy" decoding="async">
             </div>
             <div class="album-copy">
               <span>альбом</span>
@@ -227,7 +243,7 @@
 
         <div class="download-panel">
           <div class="download-photo">
-            <img src="assets/images/lena-download-meditation.png" alt="Елена Насырова в медитативном образе" loading="lazy" decoding="async">
+            <img src="assets/images/lena-download-meditation-lite.jpg" alt="Елена Насырова в медитативном образе" loading="lazy" decoding="async">
           </div>
           <h3>Скачать материалы</h3>
           <ol>
@@ -263,7 +279,7 @@
           </div>
 
           <figure class="festival-visual festival-visual--mobile">
-            <img src="assets/images/lena-festival-drum.png" alt="Елена Насырова в женском круге с бубном" loading="lazy" decoding="async">
+            <img src="assets/images/lena-festival-drum-lite.jpg" alt="Елена Насырова в женском круге с бубном" loading="lazy" decoding="async">
           </figure>
 
           <div class="festival-list">
@@ -280,7 +296,7 @@
           </div>
         </div>
         <figure class="festival-visual">
-          <img src="assets/images/lena-festival-drum.png" alt="Елена Насырова в женском круге с бубном" loading="lazy" decoding="async">
+          <img src="assets/images/lena-festival-drum-lite.jpg" alt="Елена Насырова в женском круге с бубном" loading="lazy" decoding="async">
         </figure>
       </div>
     </section>
@@ -288,7 +304,7 @@
     <section class="section section--lineage" id="lineage">
       <div class="container lineage-panel">
         <figure class="lineage-media">
-          <img src="assets/images/lineage-tree-cosmic.png" alt="Светлое дерево с корнями и звездными линиями" loading="lazy" decoding="async">
+          <img src="assets/images/lineage-tree-cosmic-lite.jpg" alt="Светлое дерево с корнями и звездными линиями" loading="lazy" decoding="async">
         </figure>
         <div class="lineage-copy">
           <p class="kicker">спектакль-практика</p>
@@ -342,6 +358,34 @@
   </main>
   <script>
     (() => {
+      if (!window.location.hash) window.scrollTo(0, 0);
+
+      const topbar = document.querySelector(".topbar");
+      const menuToggle = document.querySelector(".menu-toggle");
+      const mobileMenu = document.querySelector(".mobile-menu");
+
+      if (topbar && menuToggle && mobileMenu) {
+        const closeMenu = () => {
+          topbar.classList.remove("is-menu-open");
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", "Открыть меню");
+        };
+
+        menuToggle.addEventListener("click", () => {
+          const isOpen = topbar.classList.toggle("is-menu-open");
+          menuToggle.setAttribute("aria-expanded", String(isOpen));
+          menuToggle.setAttribute("aria-label", isOpen ? "Закрыть меню" : "Открыть меню");
+        });
+
+        mobileMenu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", closeMenu);
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape") closeMenu();
+        });
+      }
+
       const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       if (prefersReducedMotion || !("IntersectionObserver" in window)) {
         document.documentElement.classList.remove("reveal-ready");
@@ -351,10 +395,15 @@
       const selectors = [
         ".hero__copy",
         ".portrait-card",
-        ".section",
+        ".section-head",
+        ".about-showcase",
         ".practice-card",
+        ".methods",
+        ".music-grid",
         ".album-card",
+        ".gift-grid",
         ".download-panel",
+        ".festival-copy",
         ".festival-list article",
         ".festival-visual",
         ".lineage-panel",
@@ -377,6 +426,10 @@
         item.classList.add("reveal-item");
         if (item.closest(".hero")) item.classList.add("is-visible");
         observer.observe(item);
+      });
+
+      requestAnimationFrame(() => {
+        document.documentElement.classList.add("reveal-ready");
       });
     })();
   </script>
