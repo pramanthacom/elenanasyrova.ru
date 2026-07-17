@@ -1,4 +1,5 @@
 import { createServer } from "node:http";
+import { request } from "node:https";
 import { readFileSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -244,18 +245,47 @@ async function sendMessage(chatId, text, replyMarkup) {
 }
 
 async function api(method, payload = {}) {
-  const response = await fetch(`${apiBase}/${method}`, {
-    method: "POST",
-    headers: { "content-type": "application/json" },
-    body: JSON.stringify(payload)
-  });
-
-  const data = await response.json();
+  const data = await postJson(`${apiBase}/${method}`, payload);
   if (!data.ok) {
     throw new Error(`${method}: ${data.description || "Telegram API error"}`);
   }
 
   return data.result;
+}
+
+function postJson(url, payload) {
+  const body = JSON.stringify(payload);
+
+  return new Promise((resolve, reject) => {
+    const req = request(url, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "content-length": Buffer.byteLength(body)
+      },
+      timeout: 30000
+    }, (res) => {
+      let responseBody = "";
+      res.setEncoding("utf8");
+      res.on("data", (chunk) => {
+        responseBody += chunk;
+      });
+      res.on("end", () => {
+        try {
+          resolve(JSON.parse(responseBody));
+        } catch (error) {
+          reject(new Error(`Telegram returned invalid JSON: ${error.message}`));
+        }
+      });
+    });
+
+    req.on("timeout", () => {
+      req.destroy(new Error("Telegram request timed out"));
+    });
+    req.on("error", reject);
+    req.write(body);
+    req.end();
+  });
 }
 
 function normalizePayload(payload) {
