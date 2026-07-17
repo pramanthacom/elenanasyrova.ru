@@ -1,3 +1,6 @@
 .DS_Store
 Thumbs.db
 *.log
+.env
+bot/.env
+node_modules/
