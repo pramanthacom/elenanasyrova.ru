@@ -2,6 +2,9 @@ import { createServer } from "node:http";
 import { readFileSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { setDefaultResultOrder } from "node:dns";
+
+setDefaultResultOrder("ipv4first");
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const botDir = join(__dirname, "..");
