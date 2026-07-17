@@ -263,7 +263,7 @@ function postJson(url, payload) {
         "content-type": "application/json",
         "content-length": Buffer.byteLength(body)
       },
-      timeout: 30000
+      timeout: 60000
     }, (res) => {
       let responseBody = "";
       res.setEncoding("utf8");
