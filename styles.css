@@ -420,8 +420,26 @@ h3 {
 }
 
 .topbar--simple {
-  grid-template-columns: 1fr;
-  justify-items: center;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+}
+
+.topbar--simple .brand {
+  grid-column: 2;
+}
+
+.listen-home-link {
+  grid-column: 3;
+  justify-self: end;
+  color: #dfbfa8;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 180ms ease;
+}
+
+.listen-home-link:hover {
+  color: var(--clay);
 }
 
 .listen-page {
@@ -1416,7 +1434,7 @@ h3 {
 
 .contact-links {
   display: grid;
-  grid-template-columns: repeat(6, 52px) repeat(2, minmax(190px, auto));
+  grid-template-columns: repeat(6, 52px) minmax(220px, auto);
   justify-content: center;
   gap: 12px;
 }
@@ -1451,9 +1469,13 @@ h3 {
 }
 
 .contact-links .contact-service {
-  color: var(--pearl);
-  background: rgba(202, 144, 132, 0.72);
-  border-color: rgba(255, 253, 248, 0.5);
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: min(100%, 380px);
+  color: var(--ink);
+  background: rgba(243, 216, 165, 0.9);
+  border-color: rgba(255, 253, 248, 0.74);
+  box-shadow: 0 16px 42px rgba(13, 35, 35, 0.16);
 }
 
 .contact-links a:hover {
