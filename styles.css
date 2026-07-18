@@ -1473,7 +1473,7 @@ h3 {
   justify-self: center;
   width: min(100%, 380px);
   color: var(--pearl);
-  background: rgba(24, 60, 61, 0.92);
+  background: rgba(47, 104, 103, 0.9);
   border-color: rgba(255, 253, 248, 0.82);
   box-shadow: 0 16px 42px rgba(13, 35, 35, 0.2);
 }
@@ -1486,11 +1486,17 @@ h3 {
 .contact-links .contact-service:hover,
 .contact-links .contact-service:focus-visible {
   color: var(--pearl);
-  background: rgba(47, 104, 103, 0.94);
+  background: rgba(74, 130, 126, 0.94);
 }
 
 .contact-links a:active {
   transform: translateY(0) scale(0.96);
+}
+
+@media (min-width: 761px) {
+  .contact-links .contact-service {
+    margin-top: 8px;
+  }
 }
 
 .portrait-slot,
