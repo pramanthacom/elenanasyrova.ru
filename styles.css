@@ -2001,3 +2001,363 @@ h3 {
     transform: scale(1.12);
   }
 }
+
+.retreat-page {
+  background:
+    linear-gradient(125deg, rgba(223, 245, 239, 0.42), transparent 42%),
+    linear-gradient(180deg, #fffdf8 0%, #fff7ef 100%);
+}
+
+.retreat-hero {
+  position: relative;
+  min-height: 660px;
+  padding: 72px 0 78px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background:
+    linear-gradient(112deg, rgba(255, 253, 248, 0.92) 0%, rgba(253, 235, 229, 0.72) 52%, rgba(231, 245, 239, 0.82) 100%);
+}
+
+.retreat-hero::before,
+.retreat-final::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.28;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(248, 215, 208, 0.7), transparent 28%),
+    radial-gradient(circle at 88% 24%, rgba(107, 168, 162, 0.32), transparent 30%),
+    radial-gradient(circle at 50% 100%, rgba(223, 191, 168, 0.28), transparent 34%);
+}
+
+.retreat-hero__grid,
+.retreat-split,
+.retreat-guides,
+.retreat-final__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  align-items: center;
+  gap: 56px;
+}
+
+.retreat-hero__grid {
+  grid-template-columns: minmax(0, 0.94fr) minmax(360px, 0.86fr);
+}
+
+.retreat-hero h1,
+.retreat-copy h2,
+.retreat-final h2 {
+  margin: 0;
+  color: var(--teal-950);
+  font-family: var(--serif);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 0.9;
+}
+
+.retreat-hero h1 {
+  font-size: clamp(76px, 12vw, 150px);
+}
+
+.retreat-hero__subtitle {
+  margin: 10px 0 0;
+  color: #c58d7f;
+  font-size: clamp(24px, 3.2vw, 42px);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.retreat-lead,
+.retreat-copy p,
+.retreat-final p {
+  color: var(--muted);
+  font-size: 19px;
+  line-height: 1.74;
+}
+
+.retreat-lead {
+  max-width: 670px;
+  margin: 30px 0 0;
+}
+
+.retreat-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 30px 0 34px;
+}
+
+.retreat-pills span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 10px 18px;
+  border: 1px solid rgba(223, 191, 168, 0.5);
+  border-radius: 999px;
+  background: rgba(255, 253, 248, 0.55);
+  color: var(--teal-950);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.retreat-hero__media,
+.retreat-image,
+.retreat-final__image {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.84);
+  border-radius: 8px;
+  background: rgba(255, 253, 248, 0.45);
+  box-shadow:
+    0 0 0 1px rgba(223, 191, 168, 0.22),
+    0 26px 80px rgba(194, 125, 111, 0.13);
+}
+
+.retreat-hero__media img,
+.retreat-image img,
+.retreat-final__image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.retreat-hero__media {
+  aspect-ratio: 4 / 5;
+  max-height: 620px;
+}
+
+.retreat-section {
+  position: relative;
+}
+
+.retreat-split,
+.retreat-guides,
+.retreat-final__grid {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.retreat-copy h2,
+.retreat-final h2,
+.retreat-page .section-head h2 {
+  font-size: clamp(48px, 6.8vw, 92px);
+}
+
+.retreat-copy p,
+.retreat-final p {
+  max-width: 680px;
+  margin: 24px 0 0;
+}
+
+.retreat-image {
+  aspect-ratio: 4 / 3;
+}
+
+.retreat-image--wide {
+  aspect-ratio: 16 / 10;
+}
+
+.retreat-image--guides {
+  aspect-ratio: 4 / 5;
+  max-height: 640px;
+}
+
+.retreat-elements-layout {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.88fr) minmax(0, 1.12fr);
+  align-items: stretch;
+  gap: 24px;
+  margin-top: 38px;
+}
+
+.retreat-image--elements {
+  min-height: 538px;
+  aspect-ratio: 4 / 5;
+}
+
+.retreat-card-grid,
+.retreat-program-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.retreat-card-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 38px;
+}
+
+.retreat-elements-layout .retreat-card-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 0;
+}
+
+.retreat-card-grid article,
+.retreat-day {
+  border: 1px solid rgba(223, 191, 168, 0.36);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 253, 248, 0.84), rgba(231, 245, 239, 0.5));
+  box-shadow: 0 24px 70px rgba(194, 125, 111, 0.08);
+}
+
+.retreat-card-grid article {
+  min-height: 260px;
+  padding: 28px;
+}
+
+.retreat-card-grid span,
+.retreat-day span {
+  color: #c58d7f;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.retreat-card-grid h3,
+.retreat-day h3 {
+  margin: 22px 0 0;
+  color: var(--teal-950);
+  font-size: 26px;
+  line-height: 1.12;
+}
+
+.retreat-card-grid p,
+.retreat-day p {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.62;
+}
+
+.retreat-program-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 38px;
+}
+
+.retreat-day {
+  min-height: 210px;
+  padding: 24px;
+}
+
+.retreat-final {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(120deg, rgba(255, 253, 248, 0.9), rgba(248, 215, 208, 0.58) 55%, rgba(231, 245, 239, 0.72));
+}
+
+.retreat-final__image {
+  aspect-ratio: 4 / 3;
+}
+
+.retreat-final .button {
+  margin-top: 30px;
+}
+
+@media (max-width: 1080px) {
+  .retreat-hero__grid,
+  .retreat-split,
+  .retreat-guides,
+  .retreat-final__grid {
+    gap: 34px;
+  }
+
+  .retreat-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 940px) {
+  .retreat-hero {
+    min-height: 0;
+    padding: 48px 0 58px;
+  }
+
+  .retreat-hero__grid,
+  .retreat-split,
+  .retreat-split--reverse,
+  .retreat-guides,
+  .retreat-final__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .retreat-split--reverse .retreat-image {
+    order: 2;
+  }
+
+  .retreat-split--reverse .retreat-copy {
+    order: 1;
+  }
+
+  .retreat-hero__media {
+    width: min(520px, 100%);
+    margin: 0 auto;
+  }
+
+  .retreat-elements-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .retreat-image--elements {
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+
+  .retreat-program-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .retreat-hero {
+    padding: 34px 0 48px;
+  }
+
+  .retreat-hero h1 {
+    font-size: clamp(72px, 24vw, 104px);
+  }
+
+  .retreat-hero__subtitle {
+    font-size: 20px;
+  }
+
+  .retreat-lead,
+  .retreat-copy p,
+  .retreat-final p {
+    font-size: 16px;
+    line-height: 1.68;
+  }
+
+  .retreat-pills {
+    gap: 8px;
+  }
+
+  .retreat-pills span {
+    min-height: 38px;
+    padding: 9px 14px;
+    font-size: 12px;
+  }
+
+  .retreat-card-grid,
+  .retreat-program-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .retreat-card-grid article,
+  .retreat-day {
+    min-height: 0;
+    padding: 22px;
+  }
+
+  .retreat-image,
+  .retreat-image--wide,
+  .retreat-image--elements,
+  .retreat-final__image {
+    aspect-ratio: 4 / 3;
+  }
+}
