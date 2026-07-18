@@ -515,7 +515,7 @@ h3 {
 }
 
 .listen-card {
-  min-height: 260px;
+  min-height: 180px;
   padding: 28px;
   display: grid;
   align-content: start;
