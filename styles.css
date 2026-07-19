@@ -1201,6 +1201,8 @@ h3 {
 }
 
 .expeditions-copy {
+  grid-column: 2;
+  grid-row: 1;
   max-width: 780px;
 }
 
@@ -1253,8 +1255,10 @@ h3 {
 }
 
 .expedition-visual {
+  grid-column: 1;
+  grid-row: 1;
   width: min(100%, 560px);
-  justify-self: end;
+  justify-self: start;
 }
 
 .expedition-video-card {
@@ -1815,6 +1819,12 @@ body.is-modal-open {
 
   .festival-copy {
     max-width: 100%;
+  }
+
+  .expeditions-copy,
+  .expedition-visual {
+    grid-column: auto;
+    grid-row: auto;
   }
 
   .expedition-visual {
