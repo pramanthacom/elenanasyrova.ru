@@ -2626,7 +2626,7 @@ body.is-modal-open {
 }
 
 .expedition-story-hero h1 {
-  font-size: clamp(76px, 12vw, 148px);
+  font-size: clamp(58px, 8.5vw, 112px);
 }
 
 .expedition-story-lead {
@@ -2681,7 +2681,7 @@ body.is-modal-open {
 .expedition-path h2,
 .expedition-meaning h2,
 .expedition-videos .section-head h2 {
-  font-size: clamp(48px, 6.8vw, 92px);
+  font-size: clamp(40px, 5.2vw, 72px);
 }
 
 .expedition-path__text {
@@ -2701,6 +2701,12 @@ body.is-modal-open {
   background:
     radial-gradient(circle at 14% 20%, rgba(248, 215, 208, 0.46), transparent 31%),
     linear-gradient(180deg, #fffdf8 0%, #fff3ec 100%);
+}
+
+.expedition-video-start {
+  background:
+    radial-gradient(circle at 82% 18%, rgba(248, 215, 208, 0.3), transparent 30%),
+    linear-gradient(180deg, #fffdf8 0%, #e5f7f1 100%);
 }
 
 .expedition-initiation__grid {
@@ -2735,9 +2741,9 @@ body.is-modal-open {
   margin: 28px 0 0;
   color: var(--teal-950);
   font-family: var(--serif);
-  font-size: clamp(30px, 3.1vw, 48px);
+  font-size: clamp(26px, 2.5vw, 38px);
   font-weight: 500;
-  line-height: 1.04;
+  line-height: 1.12;
 }
 
 .expedition-meaning {
@@ -2773,6 +2779,12 @@ body.is-modal-open {
   margin-top: 42px;
 }
 
+.video-story-grid--start {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 980px;
+  margin: 0 auto;
+}
+
 .video-story-card {
   overflow: hidden;
   border: 1px solid rgba(223, 191, 168, 0.36);
@@ -2798,6 +2810,15 @@ body.is-modal-open {
   border: 0;
   background: var(--teal-950);
   cursor: pointer;
+}
+
+.video-story-card--hero {
+  width: min(100%, 440px);
+  justify-self: end;
+}
+
+.video-story-card--hero .video-story-card__button {
+  aspect-ratio: 4 / 5;
 }
 
 .video-story-card__button::after {
@@ -2855,8 +2876,8 @@ body.is-modal-open {
 .video-story-card__copy h3 {
   margin: 14px 0 0;
   color: var(--teal-950);
-  font-size: 25px;
-  line-height: 1.12;
+  font-size: 21px;
+  line-height: 1.16;
 }
 
 .video-story-card__copy p {
@@ -2928,14 +2949,18 @@ body.is-modal-open {
     margin: 0 auto;
   }
 
+  .video-story-card--hero {
+    justify-self: center;
+  }
+
   .expedition-story-hero h1 {
-    font-size: clamp(58px, 18vw, 92px);
+    font-size: clamp(46px, 14vw, 72px);
   }
 
   .expedition-path h2,
   .expedition-meaning h2,
   .expedition-videos .section-head h2 {
-    font-size: clamp(42px, 11vw, 62px);
+    font-size: clamp(34px, 9vw, 48px);
   }
 
   .expedition-quote {
