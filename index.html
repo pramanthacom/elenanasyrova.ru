@@ -286,7 +286,7 @@
         </div>
 
         <div class="expedition-visual">
-          <button class="expedition-video-card" type="button" data-rutube-id="7970c9e1662582e4edc6560e354895ff" aria-label="Открыть видео о сакральных экспедициях">
+          <button class="expedition-video-card" type="button" data-rutube-id="7970c9e1662582e4edc6560e354895ff" data-video-shape="portrait" aria-label="Открыть видео о сакральных экспедициях">
             <img src="assets/images/retreat/retreat-lena-invite.jpg" alt="Сакральная экспедиция Елены Насыровой" loading="lazy" decoding="async">
             <span class="expedition-play" aria-hidden="true">
               <svg viewBox="0 0 24 24" focusable="false">
@@ -439,6 +439,7 @@
       const closeVideo = () => {
         if (!videoModal || !videoFrame) return;
         videoFrame.src = "";
+        videoModal.classList.remove("video-modal--portrait");
         videoModal.hidden = true;
         document.body.classList.remove("is-modal-open");
       };
@@ -448,6 +449,7 @@
           if (!videoModal || !videoFrame) return;
           const id = button.dataset.rutubeId;
           if (!id) return;
+          videoModal.classList.toggle("video-modal--portrait", button.dataset.videoShape === "portrait");
           videoFrame.src = `https://rutube.ru/play/embed/${id}`;
           videoModal.hidden = false;
           document.body.classList.add("is-modal-open");

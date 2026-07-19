@@ -153,7 +153,7 @@
 
         <div class="video-story-grid" aria-label="Видео истории сакральных экспедиций">
           <article class="video-story-card">
-            <button class="video-story-card__button" type="button" data-rutube-id="26465d4f573bee78849a3079c9aaea50" aria-label="Открыть видео: Вход в пространство">
+            <button class="video-story-card__button" type="button" data-rutube-id="26465d4f573bee78849a3079c9aaea50" data-video-shape="portrait" aria-label="Открыть видео: Вход в пространство">
               <img src="assets/images/retreat/retreat-lena-invite.jpg" alt="Вход в пространство" loading="lazy" decoding="async">
               <span class="video-story-card__play" aria-hidden="true">
                 <svg viewBox="0 0 24 24" focusable="false"><path d="M8 5.5v13l10-6.5-10-6.5Z"></path></svg>
@@ -167,7 +167,7 @@
           </article>
 
           <article class="video-story-card">
-            <button class="video-story-card__button" type="button" data-rutube-id="631798268ef1eb060cd16f5410dc8723" aria-label="Открыть видео: Живое поле группы">
+            <button class="video-story-card__button" type="button" data-rutube-id="631798268ef1eb060cd16f5410dc8723" data-video-shape="portrait" aria-label="Открыть видео: Живое поле группы">
               <img src="assets/images/retreat/retreat-circle-fire.jpg" alt="Живое поле группы" loading="lazy" decoding="async">
               <span class="video-story-card__play" aria-hidden="true">
                 <svg viewBox="0 0 24 24" focusable="false"><path d="M8 5.5v13l10-6.5-10-6.5Z"></path></svg>
@@ -320,6 +320,7 @@
       const closeVideo = () => {
         if (!videoModal || !videoFrame) return;
         videoFrame.src = "";
+        videoModal.classList.remove("video-modal--portrait");
         videoModal.hidden = true;
         document.body.classList.remove("is-modal-open");
       };
@@ -329,6 +330,7 @@
           if (!videoModal || !videoFrame) return;
           const id = button.dataset.rutubeId;
           if (!id) return;
+          videoModal.classList.toggle("video-modal--portrait", button.dataset.videoShape === "portrait");
           videoFrame.src = `https://rutube.ru/play/embed/${id}`;
           videoModal.hidden = false;
           document.body.classList.add("is-modal-open");
