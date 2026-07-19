@@ -221,9 +221,9 @@ a {
 
 .section--expeditions {
   background:
-    radial-gradient(circle at 15% 16%, rgba(223, 245, 239, 0.55), transparent 32%),
-    radial-gradient(circle at 88% 18%, rgba(248, 215, 208, 0.42), transparent 34%),
-    linear-gradient(180deg, var(--cream) 0%, var(--pearl) 100%);
+    radial-gradient(circle at 14% 16%, rgba(184, 221, 216, 0.62), transparent 34%),
+    radial-gradient(circle at 86% 18%, rgba(248, 215, 208, 0.28), transparent 34%),
+    linear-gradient(180deg, #e5f7f1 0%, #f4fbf7 54%, #fff8ef 100%);
 }
 
 .section--wild {
