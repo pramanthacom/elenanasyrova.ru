@@ -47,7 +47,7 @@
     </a>
     <nav class="topnav topnav--right" aria-label="Дополнительные разделы">
       <a href="#wild">Wild</a>
-      <a href="retreat-turkey.html">Ретриты</a>
+      <a href="retreat-turkey.html">Экспедиции</a>
       <a href="#lineage">Сила рода</a>
       <a href="#contact">Контакты</a>
     </nav>
@@ -61,7 +61,7 @@
       <a href="#practice">Практика</a>
       <a href="#gift">Сакрамедитация</a>
       <a href="#wild">Wild</a>
-      <a href="retreat-turkey.html">Ретриты</a>
+      <a href="retreat-turkey.html">Экспедиции</a>
       <a href="#lineage">Сила рода</a>
       <a href="#contact">Контакты</a>
     </nav>
@@ -265,6 +265,45 @@
       </div>
     </section>
 
+    <section class="section section--expeditions" id="expeditions">
+      <div class="container expeditions-grid">
+        <div class="expeditions-copy">
+          <p class="kicker kicker--dark">Сакральные экспедиции</p>
+          <h2>Места силы, которые возвращают к себе</h2>
+          <p class="section-text">
+            Много лет я иду к древним землям, храмам, вершинам и водам как к живым проводникам.
+            Для меня экспедиция — это не тур, а путь, где место силы помогает телу вспомнить опору,
+            душе — свой голос, а человеку — следующий шаг.
+          </p>
+          <p class="section-text">
+            Я создаю маршруты для тех, кто чувствует: пора не просто отдохнуть, а пройти внутренний
+            переход и вернуться к себе глубже — через землю, воду, тишину, практики и живое поле группы.
+          </p>
+          <div class="expedition-signals" aria-label="Темы сакральных экспедиций">
+            <span>места силы</span>
+            <span>женский круг</span>
+            <span>внутренний переход</span>
+          </div>
+          <div class="actions expedition-actions">
+            <a class="button button--soft" href="expeditions.html">Видео истории</a>
+            <a class="button button--primary" href="retreat-turkey.html">Ближайшие экспедиции</a>
+          </div>
+        </div>
+
+        <div class="expedition-visual">
+          <button class="expedition-video-card" type="button" data-rutube-id="7970c9e1662582e4edc6560e354895ff" aria-label="Открыть видео о сакральных экспедициях">
+            <img src="assets/images/retreat/retreat-lena-invite.jpg" alt="Сакральная экспедиция Елены Насыровой" loading="lazy" decoding="async">
+            <span class="expedition-play" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M8 5.5v13l10-6.5-10-6.5Z"></path>
+              </svg>
+            </span>
+            <span class="expedition-video-label">Смотреть фрагмент</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
     <section class="section section--wild" id="wild">
       <div class="container festival-grid">
         <div class="festival-copy">
@@ -362,6 +401,13 @@
       </div>
     </section>
   </main>
+  <div class="video-modal" id="expedition-video-modal" hidden>
+    <button class="video-modal__backdrop" type="button" aria-label="Закрыть видео"></button>
+    <div class="video-modal__dialog" role="dialog" aria-modal="true" aria-label="Видео о сакральных экспедициях">
+      <button class="video-modal__close" type="button" aria-label="Закрыть видео">×</button>
+      <iframe class="video-modal__frame" title="Видео о сакральных экспедициях" allow="clipboard-write; autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
   <script>
     (() => {
       if (!window.location.hash) window.scrollTo(0, 0);
@@ -392,6 +438,33 @@
         });
       }
 
+      const videoModal = document.getElementById("expedition-video-modal");
+      const videoFrame = videoModal?.querySelector(".video-modal__frame");
+      const closeVideoButtons = videoModal ? videoModal.querySelectorAll(".video-modal__backdrop, .video-modal__close") : [];
+      const closeVideo = () => {
+        if (!videoModal || !videoFrame) return;
+        videoFrame.src = "";
+        videoModal.hidden = true;
+        document.body.classList.remove("is-modal-open");
+      };
+
+      document.querySelectorAll("[data-rutube-id]").forEach((button) => {
+        button.addEventListener("click", () => {
+          if (!videoModal || !videoFrame) return;
+          const id = button.dataset.rutubeId;
+          if (!id) return;
+          videoFrame.src = `https://rutube.ru/play/embed/${id}`;
+          videoModal.hidden = false;
+          document.body.classList.add("is-modal-open");
+          videoModal.querySelector(".video-modal__close")?.focus({ preventScroll: true });
+        });
+      });
+
+      closeVideoButtons.forEach((button) => button.addEventListener("click", closeVideo));
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeVideo();
+      });
+
       const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       if (prefersReducedMotion || !("IntersectionObserver" in window)) {
         document.documentElement.classList.remove("reveal-ready");
@@ -409,6 +482,8 @@
         ".album-card",
         ".gift-grid",
         ".download-panel",
+        ".expeditions-copy",
+        ".expedition-video-card",
         ".festival-copy",
         ".festival-list article",
         ".festival-visual",
