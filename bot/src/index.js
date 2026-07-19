@@ -22,13 +22,13 @@ const botName = env.BOT_NAME || "Елена Насырова Бот";
 const materials = JSON.parse(readFileSync(join(botDir, "materials.json"), "utf8"));
 
 const socialLinks = [
-  ["Кластер уникальности", channelInviteUrl],
-  ["Telegram", env.CONTACT_TG_URL || "https://t.me/alteyapro"],
-  ["Rutube", env.RUTUBE_CHANNEL_URL || "https://rutube.ru/channel/49466882/"],
-  ["VK", env.VK_URL || "https://vk.com/alteyaprogroup"],
-  ["Instagram", env.INSTAGRAM_URL || "https://www.instagram.com/nasyrovaelena?igshid=MzRlODBiNWFlZA%3D%3D"],
-  ["Сайт-визитка", env.SITE_URL || "https://elena-nasyrova.ru/"],
-  ["Услуги и цены", env.SERVICES_SITE_URL || "https://elenanasyrova.ru/"]
+  ["✦ Кластер уникальности", channelInviteUrl],
+  ["✈️ Telegram", env.CONTACT_TG_URL || "https://t.me/alteyapro"],
+  ["▶️ Rutube", env.RUTUBE_CHANNEL_URL || "https://rutube.ru/channel/49466882/"],
+  ["💙 VK", env.VK_URL || "https://vk.com/alteyaprogroup"],
+  ["◎ Instagram", env.INSTAGRAM_URL || "https://www.instagram.com/nasyrovaelena?igshid=MzRlODBiNWFlZA%3D%3D"],
+  ["◉ Сайт-визитка", env.SITE_URL || "https://elena-nasyrova.ru/"],
+  ["✧ Услуги и цены", env.SERVICES_SITE_URL || "https://elenanasyrova.ru/"]
 ];
 
 const flows = new Set(["sacrameditations", "sila_roda"]);
