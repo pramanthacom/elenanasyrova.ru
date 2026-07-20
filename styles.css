@@ -1053,15 +1053,15 @@ h3 {
 
 .album-list {
   display: grid;
-  gap: 16px;
+  gap: 12px;
 }
 
 .album-card {
   display: grid;
-  grid-template-columns: 188px 1fr;
-  gap: 20px;
+  grid-template-columns: 156px 1fr;
+  gap: 18px;
   align-items: center;
-  padding: 16px;
+  padding: 14px;
   background: rgba(255, 253, 248, 0.68);
 }
 
@@ -1118,6 +1118,16 @@ h3 {
     linear-gradient(145deg, #0c2229, #244653 62%, #07161b);
 }
 
+.album-card--lineage .cover {
+  background:
+    radial-gradient(circle at 58% 38%, rgba(148, 219, 219, 0.18), transparent 42%),
+    linear-gradient(145deg, #061c20, #183840 62%, #051416);
+}
+
+.album-card--lineage .cover img {
+  filter: saturate(0.7) contrast(0.78) brightness(1.12);
+}
+
 .cover span {
   position: relative;
   z-index: 1;
@@ -1136,14 +1146,15 @@ h3 {
 }
 
 .album-card p {
-  margin: 10px 0 0;
+  margin: 8px 0 0;
   color: var(--muted);
+  font-size: 17px;
   line-height: 1.45;
 }
 
 .album-card a {
   display: inline-flex;
-  margin-top: 14px;
+  margin-top: 10px;
   color: var(--clay);
   font-weight: 800;
 }
