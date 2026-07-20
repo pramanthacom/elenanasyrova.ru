@@ -2626,15 +2626,21 @@ body.is-modal-open {
 }
 
 .expedition-story-hero h1 {
-  font-size: clamp(58px, 8.5vw, 112px);
+  font-size: clamp(52px, 7.2vw, 92px);
 }
 
-.expedition-story-lead {
+.expedition-story-hero__text {
+  display: grid;
+  gap: 14px;
   max-width: 720px;
   margin: 28px 0 0;
+}
+
+.expedition-story-hero__text p {
+  margin: 0;
   color: var(--muted);
-  font-size: clamp(19px, 1.7vw, 25px);
-  line-height: 1.58;
+  font-size: 18px;
+  line-height: 1.62;
 }
 
 .expedition-story-hero .actions {
@@ -2681,7 +2687,7 @@ body.is-modal-open {
 .expedition-path h2,
 .expedition-meaning h2,
 .expedition-videos .section-head h2 {
-  font-size: clamp(40px, 5.2vw, 72px);
+  font-size: clamp(38px, 4.8vw, 62px);
 }
 
 .expedition-path__text {
@@ -2738,12 +2744,10 @@ body.is-modal-open {
 }
 
 .expedition-quote p {
-  margin: 28px 0 0;
-  color: var(--teal-950);
-  font-family: var(--serif);
-  font-size: clamp(26px, 2.5vw, 38px);
-  font-weight: 500;
-  line-height: 1.12;
+  margin: 22px 0 0;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.68;
 }
 
 .expedition-meaning {
@@ -2954,13 +2958,13 @@ body.is-modal-open {
   }
 
   .expedition-story-hero h1 {
-    font-size: clamp(46px, 14vw, 72px);
+    font-size: clamp(40px, 12vw, 62px);
   }
 
   .expedition-path h2,
   .expedition-meaning h2,
   .expedition-videos .section-head h2 {
-    font-size: clamp(34px, 9vw, 48px);
+    font-size: clamp(32px, 8vw, 44px);
   }
 
   .expedition-quote {
@@ -2987,12 +2991,11 @@ body.is-modal-open {
   }
 
   .expedition-path__text p,
-  .expedition-meaning__copy p {
-    font-size: 17px;
-  }
-
+  .expedition-meaning__copy p,
+  .expedition-story-hero__text p,
   .expedition-quote p {
-    font-size: clamp(28px, 9vw, 36px);
+    font-size: 16px;
+    line-height: 1.64;
   }
 
   .video-story-card__copy {
